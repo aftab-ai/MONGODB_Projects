@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Welcome to the</h1>
+        <h1>TO DO APP</h1>
+      </div>
+      <div class="entry">
+        <form action="/" method="POST">
+          <input
+            class="task"
+            type="text"
+            name="task"
+            placeholder="Enter task..."
+          />
+          <button class="add">Add Task</button>
+        </form>
+      </div>
+      <div class="list">
+        <table>
+          <tr>
+            <th id="head" colspan="2">Tasks to Do</th>
+          </tr>
+          <% for(let list of lists) { %>
+          <tr>
+            <td class="do"><%= list.task %></td>
+            <td class="delete">
+              <form action="/<%=list.id%>?_method=DELETE" method="POST">
+                <button class="btn">Completed</button>
+              </form>
+            </td>
+          </tr>
+          <% } %>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
